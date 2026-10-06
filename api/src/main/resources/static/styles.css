@@ -1,0 +1,168 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #333333;
+    --border-color: #555555;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--accent-color);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.logo-container img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tab-button {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-button:hover, .tab-button.active {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+main {
+    flex: 1;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Fade in/out transition setup */
+.tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea, button[type="submit"] {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    font-size: 16px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--text-color);
+}
+
+button[type="submit"] {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #cccccc;
+}
+
+/* Chat container */
+#chat-container {
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+#chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.message.cornelius {
+    background-color: var(--accent-color);
+    align-self: flex-start;
+}
+
+.message.user {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    align-self: flex-end;
+}
+
+#chat-input-area {
+    display: flex;
+    border-top: 1px solid var(--border-color);
+}
+
+#chat-input-area input {
+    flex: 1;
+    border: none;
+    padding: 15px;
+    border-right: 1px solid var(--border-color);
+}
+
+#chat-input-area button {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Generic additions */
+.login-box { max-width: 400px; margin: 100px auto; padding: 20px; background: #111; border: 1px solid var(--border-color); }
+.login-box h2 { text-align: center; }
+.login-box input { width: 90%; margin-bottom: 15px; }
+.login-box button { width: 100%; padding: 10px; }
+
+#new-ticket-tab input, #new-ticket-tab textarea { width: 100%; margin-bottom: 15px; box-sizing: border-box; background-color: #222; color: #fff; border: 1px solid #555; padding: 15px; }
+#new-ticket-tab button { padding: 15px; font-weight: bold; background: #fff; color: #000; cursor: pointer; }

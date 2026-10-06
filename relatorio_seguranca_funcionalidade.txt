@@ -1,0 +1,55 @@
+========================================================================
+             RELATÓRIO DE SEGURANÇA E TESTES - HBDESKHELP
+========================================================================
+
+Este documento comprova que o sistema HbDeskHelp foi submetido a uma 
+bateria de testes para garantir que ele é seguro e que funciona 
+exatamente como planejado.
+
+Aqui estão as verificações que o sistema faz automaticamente:
+
+1. PROTEÇÃO CONTRA INVASORES (Acesso Anônimo)
+------------------------------------------------------------------------
+[ STATUS: APROVADO ]
+O que foi testado: Um hacker ou pessoa mal-intencionada tentou acessar 
+a lista de chamados ou de usuários sem ter feito o login.
+Resultado: O sistema percebeu a falta de identificação e bloqueou o 
+acesso imediatamente. Ninguém entra sem senha.
+
+2. VALIDAÇÃO DE LOGIN E SENHA
+------------------------------------------------------------------------
+[ STATUS: APROVADO ]
+O que foi testado: 
+- Alguém tentou entrar com a senha errada. (Bloqueado)
+- Um usuário colocou a senha certa. (Permitido)
+Resultado: Ao colocar a senha certa, o sistema cria uma "chave virtual" 
+(Token) que acompanha o usuário enquanto ele usa o site, garantindo que 
+ele é quem diz ser.
+
+3. BLINDAGEM DE PERMISSÕES (Quem pode fazer o que?)
+------------------------------------------------------------------------
+[ STATUS: APROVADO ]
+O que foi testado: Um Desenvolvedor (Dev) tentou "dar uma de espertinho" 
+e enviou um comando invisível pro servidor tentando criar um usuário novo.
+Resultado: O sistema barrou a ação. Apenas o "Chefe de TI" tem o poder 
+de criar usuários, apagar usuários ou deletar chamados para sempre. 
+Os Devs e Funcionários estão travados dentro de suas próprias funções.
+
+4. TESTE DO FLUXO DO CHAMADO (A Jornada do Ticket)
+------------------------------------------------------------------------
+[ STATUS: APROVADO ]
+O que foi testado: Simulamos o ciclo de vida inteiro de um problema:
+  - Passo 1: Funcionário abriu chamado. A IA leu e o sistema ficou VERMELHO (Pendente e ninguém pegou).
+  - Passo 2: O Dev visualizou e clicou em assumir. O sistema mudou para LARANJA (Em andamento).
+  - Passo 3: O Dev consertou e marcou resolvido. O sistema mudou para AMARELO (Pendente de aprovação do funcionário).
+  - Passo 4: O Funcionário entrou, validou e confirmou. O sistema ficou VERDE (Concluído).
+Resultado: As cores e os status mudam na ordem exata e as permissões 
+foram respeitadas. Um Dev não consegue confirmar a própria solução, 
+apenas o funcionário pode.
+
+========================================================================
+CONCLUSÃO FINAL
+========================================================================
+O sistema HbDeskHelp está aprovado para uso. Ele protege informações,
+restringe poderes adequadamente e obriga que os chamados sigam as regras 
+da empresa até serem concluídos.

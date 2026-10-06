@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>HbDeskHelp</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="HeadBlack Logo" id="logo">
+        </div>
+        <div id="user-info" style="display:none;">
+            <span id="welcome-text"></span>
+            <button onclick="logout()">Sair</button>
+        </div>
+    </header>
+
+    <!-- TELA DE LOGIN -->
+    <main id="login-view" class="view active">
+        <div class="login-box">
+            <h2>Acesso ao Sistema</h2>
+            <input type="text" id="username" placeholder="Usuário (funcionario, dev, chefe)">
+            <input type="password" id="password" placeholder="Senha (123)">
+            <button onclick="login()">Entrar</button>
+            <p id="login-error" style="color: red;"></p>
+        </div>
+    </main>
+
+    <!-- DASHBOARD -->
+    <main id="dashboard-view" class="view" style="display:none;">
+        <nav id="nav-menu">
+            <button class="tab-button" onclick="openTab('tickets-tab')">Chamados</button>
+            <button class="tab-button" onclick="openTab('new-ticket-tab')" id="btn-new-ticket">Abrir Chamado</button>
+            <button class="tab-button" onclick="openTab('chat-tab')">IA Cornelius</button>
+            <button class="tab-button" onclick="openTab('admin-tab')" id="btn-admin" style="display:none; color: red;">Painel do Chefe</button>
+        </nav>
+
+        <section id="admin-tab" class="tab-content" style="display:none;">
+            <h2>Painel de Controle - Chefe de TI</h2>
+            
+            <div style="border: 1px solid #555; padding: 15px; margin-bottom: 20px;">
+                <h3>Criar Novo Usuário</h3>
+                <input type="text" id="new-user-name" placeholder="Nome de usuário">
+                <input type="text" id="new-user-pass" placeholder="Senha">
+                <select id="new-user-role" style="padding: 10px; margin-bottom: 15px; background: #222; color: white;">
+                    <option value="FUNCIONARIO">Funcionário</option>
+                    <option value="DEV">Desenvolvedor</option>
+                    <option value="CHEFE_TI">Chefe de TI</option>
+                </select>
+                <button onclick="createUser()">Criar Usuário</button>
+            </div>
+
+            <h3>Usuários do Sistema</h3>
+            <div id="users-list"></div>
+        </section>
+
+        <section id="tickets-tab" class="tab-content active">
+            <h2>Chamados</h2>
+            <div id="ticket-list"></div>
+        </section>
+
+        <section id="new-ticket-tab" class="tab-content" style="display:none;">
+            <h2>Novo Chamado</h2>
+            <input type="text" id="t-title" placeholder="Título">
+            <textarea id="t-desc" placeholder="Descrição detalhada..." rows="5"></textarea>
+            <button onclick="createTicket()">Enviar Chamado</button>
+        </section>
+
+        <section id="chat-tab" class="tab-content" style="display:none;">
+            <h2>Atendimento com Cornelius</h2>
+            <div id="chat-container">
+                <div id="chat-box"></div>
+                <div id="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+                    <button onclick="sendMessage()">Enviar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js?v=4"></script>
+</body>
+</html>
